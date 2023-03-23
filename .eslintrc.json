@@ -20,7 +20,8 @@
                 "sourceTag": "domain:path-builder",
                 "onlyDependOnLibsWithTags": [
                   "domain:path-builder",
-                  "domain:shared"
+                  "domain:shared",
+                  "domain:api"
                 ]
               },
               {

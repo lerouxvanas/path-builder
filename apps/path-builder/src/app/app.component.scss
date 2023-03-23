@@ -1,0 +1,27 @@
+:host{
+    
+    & > div {
+        padding: 20px;
+
+        & > h1 {
+            margin-bottom: 20px;
+        }
+
+        & > button {
+            border: 1px solid #eee;
+            padding: 10px 20px;
+            text-transform: uppercase;
+
+            &:hover{
+                background-color: #333;
+                border: 1px solid #333;
+                color: #eee;
+            }
+
+            & + button {
+                margin-left: 5px;
+            }
+        }
+    }
+
+}
