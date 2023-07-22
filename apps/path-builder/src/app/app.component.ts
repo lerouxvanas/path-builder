@@ -1,6 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ApiAuthService } from '@path-builder/api/domain';
+import {
+  BaseResponse,
+  UserAuthError,
+  UserAuthSuccess,
+} from '@path-builder/api/domain';
+import { Observable } from 'rxjs';
 
 @Component({
   standalone: true,
@@ -11,34 +17,24 @@ import { ApiAuthService } from '@path-builder/api/domain';
 })
 export class AppComponent implements OnInit {
   title = 'pathBuilder';
-  result:any = null;
+  //result$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  result$: Observable<BaseResponse | UserAuthSuccess | UserAuthError> =
+    new Observable();
+  constructor(private authService: ApiAuthService) {}
 
-  constructor(private authService:ApiAuthService) {
-  }
- 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
 
-  onTestLogin(){
-    this.authService.LoginUser({
+  onTestLogin() {
+    this.result$ = this.authService.LoginUser({
       username: 'one@occupation-path-builder.com',
-      password: 'pathofleastresistance'
-    }).subscribe((results) => {
-      console.log('Results == ', results);
-      this.result = results;
+      password: 'pathofleastresistance',
     });
   }
 
-  onTestLoginError(){
-    this.authService.LoginUser({
+  onTestLoginError() {
+    this.result$ = this.authService.LoginUser({
       username: 'one@occupation-path-builder.com',
-      password: 'notpassword'
-    }).subscribe((results) => {
-      console.log('Results == ', results);
-      this.result = results;
+      password: 'notpassword',
     });
   }
-
-  
 }

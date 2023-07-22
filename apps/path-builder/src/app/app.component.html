@@ -1,9 +1,13 @@
 <div>
-    <h1>pathBuilder 0.1</h1>
+    <div class="header">
+        <h1>Path Builder</h1>
+        <h2>occupation path builder</h2>
+    </div>
+    
     <button (click)="onTestLogin()">Test Login</button>
     <button (click)="onTestLoginError()">Test Login Error</button>
     <hr />
-    {{ result | json }}
+    {{ result$ | async | json }}
     <hr />
 </div>
 
