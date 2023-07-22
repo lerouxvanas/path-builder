@@ -21,3 +21,6 @@ based on (https://duncanhunter.gitbook.io/enterprise-angular-applications-with-n
 
 3. Add firebase api domain
 `npx nx g @angular-architects/ddd:domain api`
+
+4. Add UI lib
+`npx nx g @angular-architects/ddd:feature ui --domain pathBuilder --standalone --entity pathBuilder`

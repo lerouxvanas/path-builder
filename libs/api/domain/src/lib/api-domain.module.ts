@@ -5,3 +5,4 @@ import { CommonModule } from '@angular/common';
 })
 export class ApiDomainModule {}
 export * from './infrastructure/api.auth.service';
+export * from './entities/api.auth';
